@@ -3,8 +3,9 @@ import { puppy_list } from "./data.js";
 import "./App.css";
 
 function App() {
-	const [puppies, set_puppies] = useState(puppy_list);
+	const [puppies, setPuppies] = useState(puppy_list);
 	const [featPupId, setFeatPupId] = useState(null);
+	const featuredPup = puppies.find((pup) => pup.id === featPupId);
 
 	console.log(puppies);
 	return (
@@ -23,6 +24,15 @@ function App() {
 					</p>
 				);
 			})}
+			{featPupId && (
+				<div>
+					<h2>{featuredPup.name}</h2>
+					<ul>
+						<li>Age: {featuredPup.age}</li>
+						<li>Email: {featuredPup.email}</li>
+					</ul>
+				</div>
+			)}
 		</div>
 	);
 }
