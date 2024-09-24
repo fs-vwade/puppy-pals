@@ -9,10 +9,12 @@ function App() {
 	console.log(puppies);
 	return (
 		<div>
+			{featPupId && <p>{featPupId}</p>}
 			{puppies.map((puppy) => {
 				return (
 					<p
 						onClick={() => {
+							setFeatPupId(puppy.id);
 							console.log("puppy id:", puppy.id);
 						}}
 						key={puppy.id}
